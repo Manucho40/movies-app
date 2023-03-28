@@ -3,7 +3,7 @@ import Card from "./Card";
 const DisplayList = ({allMovies}: any) => {
     let allMoviesShow: any = []
     if(allMovies){
-        allMoviesShow = allMovies.map((item: any) => <Card item={item}/>)
+        allMoviesShow = allMovies.map((item: any, index: number) => <Card index={index} item={item}/>)
     }
     return ( 
         <>

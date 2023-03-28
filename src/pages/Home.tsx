@@ -9,6 +9,7 @@ const Home = () => {
     useEffect(() => {
       axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=f2ef4ff4389d038d917bba6974e77051').then((response) => {
         setAllMoovies(response.data.results)
+        console.log(allMovies)
       })
     }, [])
     return ( 
