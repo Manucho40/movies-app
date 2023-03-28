@@ -1,7 +1,9 @@
 const SearchBar = () => {
     return ( 
         <>
-            <h1>Hello SearchBar</h1>
+            <div className="searchDiv">
+                    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />            
+            </div>
         </>
      );
 }
