@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import InfoSurvol from "./InfoSurvole";
-
+import {Link} from "react-router-dom"
 // type Props = {
 //     item: any,
 //     allM
@@ -16,10 +16,12 @@ const Card = ({item, index}: any) => {
     // }
     return ( 
         <>
-            <div className="card" key={index} ref={card}  onMouseEnter={() => setSurvolBool(true)} onMouseLeave={() => setSurvolBool(false)} >
-                <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" />
-                <InfoSurvol overview={item.overview} survolBool={survolBool} />
-            </div>
+            <Link to={`/detail/${item.id}`}>
+                <div className="card" ref={card}  onMouseEnter={() => setSurvolBool(true)} onMouseLeave={() => setSurvolBool(false)} >
+                    <img src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`} alt="" />
+                    <InfoSurvol overview={item.overview} survolBool={survolBool} />
+                </div>            
+            </Link>
         </> 
      );
 }

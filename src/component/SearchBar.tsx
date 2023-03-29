@@ -1,8 +1,16 @@
-const SearchBar = () => {
+import { FC, useState } from "react";
+
+
+type Props = {
+    valueSearch: string,
+    handleValueSearch: (e:React.ChangeEvent<HTMLInputElement>) => void
+}
+const SearchBar: FC <Props> = ({valueSearch, handleValueSearch}) => {
+
     return ( 
         <>
-            <div className="searchDiv">
-                    <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" />            
+            <div className="searchDiv container">
+                    <input type="text" value={valueSearch} onChange={handleValueSearch} className="searchMovie" id="exampleFormControlInput1" placeholder="Search Movie" />            
             </div>
         </>
      );

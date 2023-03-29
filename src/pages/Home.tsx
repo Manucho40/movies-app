@@ -1,21 +1,19 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DisplayList from "../component/DisplayList";
 import SearchBar from "../component/SearchBar";
 
-const Home = () => {
-    const [allMovies, setAllMoovies] = useState<any>();
 
-    useEffect(() => {
-      axios.get('https://api.themoviedb.org/3/trending/movie/day?api_key=f2ef4ff4389d038d917bba6974e77051').then((response) => {
-        setAllMoovies(response.data.results)
-        console.log(allMovies)
-      })
-    }, [])
+
+const Home = ({allMovies}: any) => {
+    const [valueSearch, setValueSearch] = useState<string>("");
+    const handleValueSearch = (e:React.ChangeEvent<HTMLInputElement>) => {
+      setValueSearch(e.target.value.toLocaleLowerCase())
+  }
     return ( 
         <>
-            <SearchBar />
-            <DisplayList allMovies={allMovies}/>
+            <h1 className="text-center bigTitle">Last Trending</h1>
+            <SearchBar valueSearch={valueSearch} handleValueSearch={handleValueSearch} />
+            <DisplayList valueSearch={valueSearch} allMovies={allMovies}/>
         </>
      );
 }
