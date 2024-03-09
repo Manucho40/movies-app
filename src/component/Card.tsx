@@ -5,7 +5,7 @@ import {Link} from "react-router-dom"
 //     item: any,
 //     allM
 // }
-const Card = ({item, index}: any) => {
+const Card = ({item}: any) => {
     const [survolBool, setSurvolBool] = useState<boolean>(false);
     const card: React.MutableRefObject<null> = useRef(null);
     // const afficherInformation = () => {
